@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Games | Psychological Mind Games Hub</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-home">
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h3>Loading Mind Games...</h3>
+            <p>Prepare to challenge your brain</p>
+        </div>
+    </div>
+
+    <!-- Brain Neural Network Canvas -->
+    <canvas id="brainCanvas" class="bg-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain"></i> MIND ARENA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="memory.html"><i class="fas fa-puzzle-piece"></i> Memory</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mindreader.html"><i class="fas fa-magic"></i> Mind Reader</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reaction.html"><i class="fas fa-bolt"></i> Reaction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html"><i class="fas fa-user-circle"></i> Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="text-center mb-5 fade-in-up">
+            <div class="brain-icon-container">
+                <i class="fas fa-brain brain-icon-main"></i>
+            </div>
+            <h1 class="display-4 fw-bold mt-3">
+                Psychological Mind Games
+            </h1>
+            <p class="lead mt-3">Challenge your cognitive abilities with these interactive psychological games</p>
+        </div>
+
+        <div class="game-grid">
+            <div class="game-card memory-card" onclick="location.href='memory.html'">
+                <div class="game-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h3 class="game-title">Memory Game</h3>
+                <p class="game-desc">Test your short-term memory by recalling number sequences</p>
+                <span class="badge bg-primary mt-2">🧠 Cognitive Training</span>
+            </div>
+            
+            <div class="game-card mindreader-card" onclick="location.href='mindreader.html'">
+                <div class="game-icon"><i class="fas fa-magic"></i></div>
+                <h3 class="game-title">Mind Reader</h3>
+                <p class="game-desc">I'll read your mind using mathematical psychology</p>
+                <span class="badge bg-success mt-2">🔮 Mentalism</span>
+            </div>
+            
+            <div class="game-card reaction-card" onclick="location.href='reaction.html'">
+                <div class="game-icon"><i class="fas fa-bolt"></i></div>
+                <h3 class="game-title">Reaction Test</h3>
+                <p class="game-desc">Measure your reflexes and response time</p>
+                <span class="badge bg-danger mt-2">⚡ Speed Test</span>
+            </div>
+            
+            <div class="game-card quiz-card" onclick="location.href='quiz.html'">
+                <div class="game-icon"><i class="fas fa-user-circle"></i></div>
+                <h3 class="game-title">Personality Quiz</h3>
+                <p class="game-desc">Discover if you're an extrovert or introvert</p>
+                <span class="badge bg-info mt-2">📊 Psychology</span>
+            </div>
+            
+            <div class="game-card about-card" onclick="location.href='about.html'">
+                <div class="game-icon"><i class="fas fa-info-circle"></i></div>
+                <h3 class="game-title">About Project</h3>
+                <p class="game-desc">Learn about this psychological game suite</p>
+                <span class="badge bg-secondary mt-2">ℹ️ Info</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="clickSound" src="click.mp3"></audio>
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="startSound" src="start.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

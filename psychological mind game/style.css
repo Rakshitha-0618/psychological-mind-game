@@ -1,0 +1,437 @@
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    position: relative;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+body.loaded #loader {
+    display: none;
+}
+
+/* ==================== CANVAS BACKGROUNDS ==================== */
+.bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ==================== THEMED BACKGROUNDS WITH BRAIN PATTERNS ==================== */
+
+/* HOME THEME - Brain Waves & Neural Networks */
+.theme-home {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    position: relative;
+}
+.brain-icon-container {
+    animation: pulseBrain 2s ease-in-out infinite;
+}
+.brain-icon-main {
+    font-size: 5rem;
+    color: #a78bfa;
+    filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.5));
+}
+@keyframes pulseBrain {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* MEMORY THEME - Brain Neurons */
+.theme-memory {
+    background: linear-gradient(135deg, #0a1a2a, #0f2a3a, #1a2a3a);
+    position: relative;
+}
+
+/* MIND READER THEME - Mystic Brain */
+.theme-mindreader {
+    background: radial-gradient(ellipse at center, #1a0f2a 0%, #0a0515 100%);
+    position: relative;
+}
+
+/* REACTION THEME - Lightning Brain */
+.theme-reaction {
+    background: linear-gradient(135deg, #1a0f0a, #2a1a0f, #3a2a1a);
+    position: relative;
+    animation: brainFlash 0.5s ease-in-out infinite;
+}
+@keyframes brainFlash {
+    0%, 100% { background: linear-gradient(135deg, #1a0f0a, #2a1a0f, #3a2a1a); }
+    50% { background: linear-gradient(135deg, #2a1a0f, #3a2a1a, #4a3a2a); }
+}
+
+/* QUIZ THEME - Psychology Brain */
+.theme-quiz {
+    background: linear-gradient(135deg, #1a2a2a, #2a3a3a, #1a2a2a);
+    position: relative;
+}
+
+/* ABOUT THEME - Knowledge Brain */
+.theme-about {
+    background: linear-gradient(135deg, #1a2a1a, #2a3a2a, #1a2a1a);
+    position: relative;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: rgba(15, 12, 41, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(108, 92, 231, 0.4);
+    padding: 0.8rem 0;
+    z-index: 100;
+    position: relative;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #a78bfa, #6c5ce7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.navbar-brand i {
+    font-size: 1.8rem;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #a78bfa;
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: #c4b5fd !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 0.2rem;
+    border-radius: 8px;
+    padding: 8px 16px !important;
+}
+
+.nav-link i {
+    margin-right: 6px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #a78bfa !important;
+    background: rgba(167, 139, 250, 0.15);
+    transform: translateY(-2px);
+}
+
+/* ==================== GLASS CARD ==================== */
+.glass-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 2rem;
+    border: 1px solid rgba(108, 92, 231, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card:hover {
+    border-color: rgba(108, 92, 231, 0.9);
+    box-shadow: 0 30px 50px rgba(108, 92, 231, 0.2);
+}
+
+/* ==================== GAME GRID ==================== */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.game-card {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(167, 139, 250, 0.1));
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(108, 92, 231, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #a78bfa;
+    box-shadow: 0 25px 45px -10px rgba(108, 92, 231, 0.5);
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.3), rgba(167, 139, 250, 0.2));
+}
+
+.game-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .game-icon {
+    transform: scale(1.1);
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.game-desc {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+/* Game Card Specific Hover Effects */
+.memory-card:hover .game-icon i { color: #3b82f6; text-shadow: 0 0 20px #3b82f6; }
+.mindreader-card:hover .game-icon i { color: #a855f7; text-shadow: 0 0 20px #a855f7; }
+.reaction-card:hover .game-icon i { color: #ef4444; text-shadow: 0 0 20px #ef4444; animation: shake 0.3s ease; }
+.quiz-card:hover .game-icon i { color: #06b6d4; text-shadow: 0 0 20px #06b6d4; }
+.about-card:hover .game-icon i { color: #6b7280; text-shadow: 0 0 20px #6b7280; }
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+/* ==================== PROGRESS BAR ==================== */
+.progress-wrapper {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #a78bfa, #6c5ce7);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+    font-size: 0;
+}
+
+/* ==================== MEMORY GAME ==================== */
+.sequence-display {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    font-family: monospace;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    transition: all 0.3s ease;
+    animation: brainGlow 2s ease-in-out infinite;
+}
+
+@keyframes brainGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+/* ==================== REACTION GAME ==================== */
+.reaction-box {
+    width: 280px;
+    height: 280px;
+    margin: 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.05s linear;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    background: #2d2b55;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-custom {
+    background: linear-gradient(135deg, #6c5ce7, #a78bfa);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-custom::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-custom:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.5);
+    color: white;
+}
+
+.btn-outline-custom {
+    border: 2px solid #a78bfa;
+    background: transparent;
+    color: #a78bfa;
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background: #a78bfa;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(167, 139, 250, 0.3);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Alert Styles */
+.alert {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.alert-success {
+    background: rgba(34, 197, 94, 0.3);
+    border-left: 4px solid #22c55e;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.3);
+    border-left: 4px solid #f59e0b;
+}
+
+.alert-info {
+    background: rgba(6, 182, 212, 0.3);
+    border-left: 4px solid #06b6d4;
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f0c29, #24243e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(167, 139, 250, 0.3);
+    border-top: 4px solid #a78bfa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reaction-box {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .sequence-display {
+        font-size: 2rem;
+        letter-spacing: 0.5rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .glass-card {
+        padding: 1.5rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+}
